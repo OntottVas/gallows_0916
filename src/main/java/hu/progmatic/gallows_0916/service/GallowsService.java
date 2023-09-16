@@ -10,13 +10,9 @@ public class GallowsService {
     //List<Word> words = new ArrayList<>();
 
     private String result = "kecske";
-
     private char[] wordsToArray;
-
     private Set<Character> usedCharacters;
-
     private int counter = 10;
-
 
     public GallowsService() {
         this.wordsToArray = new char[result.length()];
@@ -70,6 +66,15 @@ public class GallowsService {
             counter--;
         }
         return wordsToArray;
+    }
+
+    public boolean win() {
+        for (int i = 0; i < this.wordsToArray.length; i++) {
+            if (this.wordsToArray[i] != this.result.charAt(i)) {
+                return false;
+            }
+        }
+        return true;
     }
 
 

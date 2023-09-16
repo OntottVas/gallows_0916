@@ -28,8 +28,13 @@ public class GameController {
     @PostMapping("/guess")
     public String guess(@ModelAttribute ("character") char character) {
         gallowsService.charFind(character);
-        return "redirect:/play";
+        if (!gallowsService.win()) {
+            return "redirect:/play";
+        }
+        return "win";
     }
+
+
 
 
 }
